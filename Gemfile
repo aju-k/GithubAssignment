@@ -23,3 +23,7 @@ gem 'omniauth','1.8.1'
 gem 'omniauth-github', '1.3.0'
 gem 'github_api', '0.18.2'
 gem 'd3js-rails', '~> 3.1', '>= 3.1.6'
+group :production do
+  gem 'pg', '0.20.0'
+  gem 'rails_12factor'
+end
