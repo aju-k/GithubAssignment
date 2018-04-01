@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html {
+    height: 100%
+}
+
+body {
+    height: 100%
+}
+
+.container-fluid {
+    height: 90%
+}
+
+.row.content {
+    height: 100%
+}
+
+.link-design {
+    text-decoration: none;
+    color: #fff !important;
+}
+
+.width-50per {
+    width: 50%
+}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+
+/* Set gray background color and 100% height */
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+
+/* Set black background color, white text and some padding */
+
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none
+}
+
+.font-size-15 {
+    font-size: 15px;
+}
+
+a:hover {
+    text-decoration: none !important;
+    background-color: transparent;
+    color: black;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.width-25per {
+    width: 25% !important;
+}
+
+.mgr-left-10 {
+    margin-left: 10px;
+}

@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag 'daterangepicker' , media: 'all', 'data-turbolinks-track' => true %>
+    <% if @project.present? %>
+        <div class="col" style="width: 35%; float: left; margin-top: 50px;">
+
+            <div class="card">
+                <div class="container">
+                    <h2>
+                        Name:
+                        <%= @project.name %>
+                    </h2>
+                    <p class="title">
+                        <%= @project.full_name%>
+                    </p>
+                    <p>
+                        Language:
+                        <%= @project.language%>
+                    </p>
+                    <p>
+                        Description
+                        <%= @project.description %>
+                    </p>
+                    <p>
+                        Project Url:
+                        <%= link_to @project.owner.url%>
+                    </p>
+                    <p>
+                        Default branch:
+                        <%= @project.default_branch%>
+                    </p>
+                    <p>
+                        Get commits:
+                        <%= form_tag({}, {:method => :get}) do %>
+                            <div class="input-prepend input-group">
+                                <span class="add-on input-group-addon">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        </span> <input class="form-control width-25per" id="reservation" name="daterange" placeholder="From-To" type="text">
+                                <div class="pull-left">
+                                    <button class="btn color-white mgr-left-10" name="button" type="submit">Find</button>
+                                </div>
+                            </div>
+                            <% end %>
+                    </p>
+                    <input type="hidden" class="commits-data" value="<%= @chartData %>">
+                </div>
+            </div>
+        </div>
+        <div class="col" style="width: 65%; float: right;">
+            <div class="container">
+                <div id="plot-container">
+                    <svg id="plot"></svg>
+                </div>
+            </div>
+        </div>
+        <% else %>
+            <div class="alert alert-danger">The logged in user can not view this project details </div>
+            <% end %>
+                <%= javascript_include_tag 'jquery','moment.min','daterangepicker', 'project_details' %>
