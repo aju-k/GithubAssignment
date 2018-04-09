@@ -1,22 +1,25 @@
 class GithubsController < ApplicationController
 
-    # /list Get list of repositories 
-    def list
-        github = current_user.login_github
-        @list = []
-        if github.present?
-            @list = github.repos.list rescue []
+    before_action :login_github
+    
+    # /githubs Get list of repositories 
+    def index
+        @list = @github&.repos&.list
+    end
+
+    # github/id Get repo details
+    def show
+        if params["id"].present?
+            @project = @github&.repos&.get_by_id(params["id"]) 
+            if @project.present?
+                @chartData = GithubApis.get_datewise_commits(current_user, @github, @project, params["daterange"])
+            end
         end
     end
 
-    # repo/id Get repo details
-    def details
-        if params["id"].present?
-           github = current_user.login_github
-           @project = github.repos.get_by_id(params["id"]) rescue ''
-           if @project.present?
-               @chartData =  GithubApis.get_datewise_commits(current_user, github, @project, params["daterange"])
-           end
-        end
+    private
+
+    def login_github
+        @github = current_user.login_github
     end
 end

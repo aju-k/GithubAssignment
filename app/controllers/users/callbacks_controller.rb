@@ -5,7 +5,7 @@ class Users::CallbacksController < ApplicationController
     def github
         @user = User.from_omniauth(request.env["omniauth.auth"])
         sign_in(@user)
-        redirect_to list_repos_path
+        redirect_to githubs_path
     end
     
 
